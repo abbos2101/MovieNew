@@ -1,6 +1,8 @@
 package abbos2101.movienew.net
 
+import abbos2101.App
 import abbos2101.movienew.common.baseUrl
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -27,6 +29,7 @@ class RetrofitInstance {
                 .readTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
                 .connectTimeout(30, TimeUnit.SECONDS)
+                .addInterceptor(ChuckerInterceptor(App.context!!))
                 .build()
         }
     }
